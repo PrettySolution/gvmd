@@ -121,6 +121,14 @@ RUN mkdir -p /run/gvmd && \
     chmod 755 /usr/local/bin/entrypoint && \
     chmod 755 /usr/local/bin/start-gvmd
 
+#USER gvmd
+RUN gvm-manage-certs -a && \
+    chown -R gvmd:gvmd /var/lib/gvm/CA && \
+    chown -R gvmd:gvmd /var/lib/gvm/private/CA && \
+    chmod -R 755 /var/lib/gvm/CA && \
+    chmod -R 755 /var/lib/gvm/private/CA
+
+
 ENTRYPOINT [ "/usr/local/bin/entrypoint" ]
 
 CMD [ "/usr/local/bin/start-gvmd" ]
