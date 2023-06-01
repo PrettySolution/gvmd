@@ -1651,9 +1651,7 @@ manager_listen (const char *address_str_unix, const char *address_str_tls,
       else
         {
           g_warning ("Failed to create manager address %s", address_str_tls);
-          address_tls.ss_family = AF_INET;
-          addr4->sin_port = port;
-          //  return -1;
+            return -1;
         }
 
       if (address_tls.ss_family == AF_INET6)

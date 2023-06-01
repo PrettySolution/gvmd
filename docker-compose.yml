@@ -67,7 +67,7 @@ services:
     ports:
       - 9390:9390
     environment:
-      GVMD_ARGS: '"--port=9390 --listen=0.0.0.0"'
+      GVMD_ARGS: --port=9390 --listen=0.0.0.0
 #      PASSWORD: admin
 #    privileged: true
     volumes:

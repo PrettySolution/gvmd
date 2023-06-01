@@ -1,0 +1,26 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /Users/air/ud/gvmd -B /Users/air/ud/gvmd/cmake-build-debug
+-- Configuring Greenbone Vulnerability Manager...
+-- The C compiler identification is AppleClang 14.0.0.14000029
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found PkgConfig: /opt/homebrew/bin/pkg-config (found version "0.29.2") 
+-- Found Git: /usr/bin/git (found version "2.37.1 (Apple Git-137.1)") 
+-- Install prefix: /usr/local
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Checking for module 'libgvm_base>=22.4'
+--   No package 'libgvm_base' found
+CMake Error at /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.25/Modules/FindPkgConfig.cmake:607 (message):
+  A required package was not found
+Call Stack (most recent call first):
+  /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.25/Modules/FindPkgConfig.cmake:829 (_pkg_check_modules_internal)
+  src/CMakeLists.txt:29 (pkg_check_modules)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/air/ud/gvmd/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/air/ud/gvmd/cmake-build-debug/CMakeFiles/CMakeError.log".
