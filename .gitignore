@@ -3,3 +3,4 @@ tags
 .ccls
 .vscode
 .idea
+cmake-build-debug
