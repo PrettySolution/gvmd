@@ -97,6 +97,7 @@ RUN apt-get update && \
     texlive-fonts-recommended \
     texlive-latex-extra \
     wget \
+    curl \
     xml-twig-tools \
     xmlstarlet \
     xsltproc \
