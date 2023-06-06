@@ -61,15 +61,15 @@ services:
 
   gvmd:
     build:
-      dockerfile: .docker/prod.Dockerfile
-
+      dockerfile: .docker/underdefense.Dockerfile
     restart: on-failure
     ports:
       - 9390:9390
     environment:
       GVMD_ARGS: --port=9390 --listen=0.0.0.0
-#      PASSWORD: admin
-#    privileged: true
+      SECRET_JWT_KEY:
+      API_SERVICE_URL:
+      PASSWORD:
     volumes:
       - gvmd_data_vol:/var/lib/gvm
       - scap_data_vol:/var/lib/gvm/scap-data/
@@ -80,12 +80,7 @@ services:
       - gvmd_socket_vol:/run/gvmd
       - ospd_openvas_socket_vol:/run/ospd
       - psql_socket_vol:/var/run/postgresql
-#      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-#      - /run/systemd/private:/run/systemd/private:ro
-#      - /var/lib/docker/:/var/lib/docker:ro
-#      - ./cert.pem:/var/lib/gvm/CA/servercert.pem
-#      - ./cert.pem:/var/lib/gvm/CA/cacert.pem # apt-get install gnutls-bin
-#      - ./key.pem:/var/lib/gvm/private/CA/serverkey.pem
+      - ./src/alert_methods/Send/alert:/usr/local/share/gvm/gvmd/global_alert_methods/4a398d42-87c0-11e5-a1c0-28d24461215b/alert
     depends_on:
       pg-gvm:
         condition: service_started
@@ -106,7 +101,7 @@ services:
     ports:
       - 9392:80
     environment:
-      GSAD_ARGS: "--http-only --mlisten=172.17.0.1 --mport=9390"
+      GSAD_ARGS: "--http-only --mlisten=gvmd --mport=9390"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.gsa.rule=PathPrefix(`/`)"
